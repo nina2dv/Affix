@@ -24,7 +24,7 @@ def getWord():
             return chosen_word
 
 def getDefinition(word):
-    KEY = "8e964aef-279a-4bd2-847f-cd34a2cfe4d9" #used in API call
+    KEY = st.secrets["KEY"] #used in API call
     requestURL = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'+ str(word) +'?key=' + KEY # str(chosen_word)
     apiResponse = requests.get(requestURL) #http GET request of URL using requests library
     return json.loads(apiResponse.content)
